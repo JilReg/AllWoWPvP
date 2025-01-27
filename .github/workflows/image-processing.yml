@@ -1,0 +1,52 @@
+name: Process and Commit Images
+
+on:
+  push:
+    paths:
+      - "**/original/**" # Trigger on any changes in folders named "original"
+    branches:
+      - main
+
+  workflow_dispatch: # Enable manual trigger
+
+jobs:
+  process-images:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # Run the image processing script
+      - name: Process Images
+        run: npm run build:images
+
+      # Configure Git for committing changes
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Action Bot"
+          git config user.email "actions@github.com"
+
+      # Commit the generated images
+      - name: Commit Changes
+        run: |
+          git add images/**/*.jpg images/**/*.webp # Add only the generated images
+          git commit -m "Process and add generated images [skip ci]" || echo "No changes to commit"
+
+      # Push the changes back to the repository
+      - name: Push Changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
