@@ -1,0 +1,27 @@
+{
+  "name": "allwowpvp",
+  "version": "1.0.0",
+  "scripts": {
+    "minify:css": "postcss src/style.css -o dist/style.min.css",
+    "minify:js": "terser src/main.js -o dist/main.min.js",
+    "build:html": "node build-html.js",
+    "build:images": "node build-images.js",
+    "remove:htmlExtension": "node remove-html-extension.js",
+    "copy:images": "node copy-images.js",
+    "copy:data": "cp src/data.csv ./dist",
+    "copy:xml": "cp src/sitemap.xml ./dist",
+    "copy:robots": "cp src/robots.txt ./dist",
+    "copy:nojekyll": "cp src/.nojekyll ./dist",
+    "copy:cname": "cp src/CNAME ./dist",
+    "build": "npm run minify:css && npm run minify:js &&  npm run build:html && npm run build:images && npm run remove:htmlExtension && npm run copy:images && npm run copy:data && npm run copy:xml && npm run copy:robots && npm run copy:nojekyll && npm run copy:cname"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^5.1.14",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "sharp": "^0.32.1",
+    "terser": "^5.17.0",
+    "http-server": "^14.1.1"
+  }
+}

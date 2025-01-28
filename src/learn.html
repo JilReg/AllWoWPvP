@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#202020" />
+
+    <title>All WoW PvP | Learn</title>
+    <meta
+      name="description"
+      content="Practice PvP-relevant spells with our interactive tools. Use flashcards and visuals to master every World of Warcraft ability."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="All WoW PvP" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="All WoW PvP | Learn" />
+    <meta
+      property="og:description"
+      content="Practice PvP-relevant spells with our interactive tools. Use flashcards and visuals to master every World of Warcraft ability."
+    />
+    <meta property="og:image" content="https://www.allwowpvp.com/images/meta/all-wowpvp-og.png" />
+    <meta property="og:url" content="https://www.allwowpvp.com/learn" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="All WoW PvP | Learn" />
+    <meta
+      name="twitter:description"
+      content="Practice PvP-relevant spells with our interactive tools. Use flashcards and visuals to master every World of Warcraft ability."
+    />
+    <meta name="twitter:image" content="https://www.allwowpvp.com/images/meta/all-wowpvp-twitter.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/images/meta/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/images/meta/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="/images/meta/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/images/meta/favicon-48x48.png" sizes="48x48" type="image/png" />
+    <link rel="icon" href="/images/meta/favicon-192x192.png" sizes="192x192" type="image/png" />
+    <link rel="icon" href="/images/meta/favicon-512x512.png" sizes="512x512" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/meta/favicon-180x180.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Website",
+        "url": "https://www.allwowpvp.com/learn",
+        "name": "All WoW PvP | Learn",
+        "description": "Practice PvP-relevant spells with our interactive tools. Use flashcards and visuals to master every World of Warcraft ability.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "All WoW PvP",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.allwowpvp.com/images/meta/logo.svg"
+          }
+        }
+      }
+    </script>
+
+    <link rel="stylesheet" href="style.css" />
+    <script defer data-domain="allwowpvp.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
+  </head>
+
+  <body>
+    <!--region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ HEADER ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼-->
+    <header class="header">
+      <a
+        class="headerLogoHref plausible-event-name=Navigation+Click plausible-event-source=learn plausible-event-section=header plausible-event-target=home"
+        href="./"
+      >
+        <img class="logo" src="../images/misc/logo.svg" alt="All WoW PvP Logo" />
+        <img class="logoShort" src="../images/misc/logo_short.svg" alt="All WoW PvP Logo" />
+      </a>
+
+      <div class="headerLinks">
+        <a
+          href="spells.html"
+          class="plausible-event-name=Navigation+Click plausible-event-source=learn plausible-event-section=header plausible-event-target=spells"
+          ><span class="headerLink">Spells</span></a
+        >
+        <a
+          href="learn.html"
+          class="plausible-event-name=Navigation+Click plausible-event-source=learn plausible-event-section=header plausible-event-target=learn"
+          ><span class="headerLink active">Learn</span></a
+        >
+      </div>
+
+      <div
+        class="filter plausible-event-name=Filter+Click plausible-event-source=learn plausible-event-section=header"
+        id="filterButton"
+      >
+        <img class="filterIcon" src="../images/google/icon_filter.svg" alt="Filter icon" />
+        <span class="filterButtonText">Filter</span>
+      </div>
+    </header>
+    <div class="filterMenu hidden" id="filterMenu">
+      <div class="filterCloseButton" id="filterCloseButton">
+        <img
+          class="filterCloseIcon"
+          src="../images/google/icon_close.svg"
+          alt="Close icon"
+          draggable="false"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="filterGroup">
+        <div class="filterHeadline">By Class</div>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_ALL" />
+          <span class="filterCheckmark"></span>
+          <span>All</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_DEATHKNIGHT" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-death-knight.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-death-knight.png"
+              alt="Death Knight Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="deathknight">Death Knight</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_DEMONHUNTER" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-demon-hunter.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-demon-hunter.png"
+              alt="Demon Hunter Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="demonhunter">Demon Hunter</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_DRUID" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-druid.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-druid.png"
+              alt="Druid Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="druid">Druid</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_EVOKER" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-evoker.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-evoker.png"
+              alt="Evoker Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="evoker">Evoker</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_HUNTER" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-hunter.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-hunter.png"
+              alt="Hunter Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="hunter">Hunter</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_MAGE" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-mage.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-mage.png"
+              alt="Mage Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="mage">Mage</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_MONK" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-monk.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-monk.png"
+              alt="Monk Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="monk">Monk</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_PALADIN" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-paladin.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-paladin.png"
+              alt="Paladin Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="paladin">Paladin</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_PRIEST" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-priest.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-priest.png"
+              alt="Priest Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="priest">Priest</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_ROGUE" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-rogue.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-rogue.png"
+              alt="Rogue Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="rogue">Rogue</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_SHAMAN" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-shaman.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-shaman.png"
+              alt="Shaman Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="shaman">Shaman</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_WARLOCK" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-warlock.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-warlock.png"
+              alt="Warlock Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="warlock">Warlock</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CLASS_WARRIOR" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source srcset="../images/blizzard/class-icons/wow-class-icon-warrior.webp" type="image/webp" />
+            <img
+              src="../images/blizzard/class-icons/wow-class-icon-warrior.png"
+              alt="Warrior Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span class="warrior">Warrior</span>
+        </label>
+      </div>
+
+      <div class="filterGroup">
+        <div class="filterHeadline">By Category</div>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_ALL" />
+          <span class="filterCheckmark"></span>
+          <span>All</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_AOECC" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-aoe-cc.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-aoe-cc.jpg"
+              alt="Spell Category AoE CC Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>AoE CC</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_CC" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-cc.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-cc.jpg"
+              alt="Spell Category CC Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>CC</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_COUNTERCC" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-counter-cc.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-counter-cc.jpg"
+              alt="Spell Category Counter CC Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Counter CC</span>
+        </label>
+
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_DEFENSIVE" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-defensive.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-defensive.jpg"
+              alt="Spell Category Defensive Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Defensive</span>
+        </label>
+
+        <label class="filterMenuContainer filterMenuContainerIndented">
+          <input type="checkbox" checked="checked" value="CATEGORY_DEFENSIVE_SELF" />
+          <span class="filterCheckmark"></span>
+          <span>Self</span>
+        </label>
+
+        <label class="filterMenuContainer filterMenuContainerIndented">
+          <input type="checkbox" checked="checked" value="CATEGORY_DEFENSIVE_TARGET" />
+          <span class="filterCheckmark"></span>
+          <span>Target</span>
+        </label>
+
+        <label class="filterMenuContainer filterMenuContainerIndented">
+          <input type="checkbox" checked="checked" value="CATEGORY_DEFENSIVE_GROUP" />
+          <span class="filterCheckmark"></span>
+          <span>Group</span>
+        </label>
+
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_DISARM" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-disarm.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-disarm.jpg"
+              alt="Spell Category Disarm Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Disarm</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_DISPEL" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-dispel.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-dispel.jpg"
+              alt="Spell Category Dispel Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Dispel</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_FREEDOM" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-freedom.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-freedom.jpg"
+              alt="Spell Category Freedom Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Freedom</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_HEAL" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-heal.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-heal.jpg"
+              alt="Spell Category Heal Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Heal</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_IMMUNITY" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-immunity.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-immunity.jpg"
+              alt="Spell Category Immunity Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Immunity</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_INTERRUPT" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-interrupt.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-interrupt.jpg"
+              alt="Spell Category Interrupt Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Interrupt</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_MOVEMENT" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-movement.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-movement.jpg"
+              alt="Spell Category Movement Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Movement</span>
+        </label>
+        <label class="filterMenuContainer">
+          <input type="checkbox" checked="checked" value="CATEGORY_OFFENSIVE" />
+          <span class="filterCheckmark"></span>
+          <picture>
+            <source
+              srcset="../images/blizzard/spell-category-icons/wow-spell-category-icon-offensive.webp"
+              type="image/webp"
+            />
+            <img
+              src="../images/blizzard/spell-category-icons/wow-spell-category-icon-offensive.jpg"
+              alt="Spell Category Offensive Icon"
+              draggable="false"
+              loading="lazy"
+            />
+          </picture>
+          <span>Offensive</span>
+        </label>
+      </div>
+
+      <div class="filterGroup">
+        <div>
+          <div class="filterHeadline">By Addon</div>
+          <label class="filterMenuContainer">
+            <input type="checkbox" checked="checked" value="ADDON_ALL" />
+            <span class="filterCheckmark"></span>
+            <span>All</span>
+          </label>
+          <label class="filterMenuContainer">
+            <input type="checkbox" checked="checked" value="ADDON_OMNICD" />
+            <span class="filterCheckmark"></span>
+            <span>OmniCD</span>
+          </label>
+          <label class="filterMenuContainer">
+            <input type="checkbox" checked="checked" value="ADDON_OMNIBAR" />
+            <span class="filterCheckmark"></span>
+            <span>OmniBar</span>
+          </label>
+          <label class="filterMenuContainer filterMenuContainerIndented">
+            <input type="checkbox" checked="checked" value="ADDON_OMNIBAR_CC" />
+            <span class="filterCheckmark"></span>
+            <span>CC</span>
+          </label>
+
+          <label class="filterMenuContainer filterMenuContainerIndented">
+            <input type="checkbox" checked="checked" value="ADDON_OMNIBAR_DEFENSIVE" />
+            <span class="filterCheckmark"></span>
+            <span>Defensive</span>
+          </label>
+
+          <label class="filterMenuContainer filterMenuContainerIndented">
+            <input type="checkbox" checked="checked" value="ADDON_OMNIBAR_INTERRUPTS" />
+            <span class="filterCheckmark"></span>
+            <span>Interrupts</span>
+          </label>
+          <label class="filterMenuContainer">
+            <input type="checkbox" checked="checked" value="ADDON_WEAKAURAS" />
+            <span class="filterCheckmark"></span>
+            <span>WeakAuras</span>
+          </label>
+        </div>
+        <div>
+          <div class="filterHeadline">Settings</div>
+          <label class="filterMenuContainer">
+            <input type="checkbox" value="SETTINGS_CATEGORIES" />
+            <span class="filterCheckmark"></span>
+            <span>Show Categories</span>
+          </label>
+          <label class="filterMenuContainer">
+            <input type="checkbox" value="SETTINGS_DESCRIPTIONS" />
+            <span class="filterCheckmark"></span>
+            <span>Original Descriptions</span>
+          </label>
+        </div>
+        <div class="filterInfoText">
+          Selection of spells,<br />
+          grouped by class,<br />
+          category or addon,<br />
+          follow guides of<br />
+          <a
+            href="https://www.skill-capped.com/articles/wow/skill-capped-ui-the-best-war-within-wow-pvp-addons"
+            target="_blank"
+            class="plausible-event-name=Button+Navigation+Click plausible-event-source=learn plausible-event-section=filter plausible-event-target=skillcapped"
+            >Skill Capped</a
+          >
+          &
+          <a
+            href="https://www.curseforge.com/wow/addons/omnicd"
+            target="_blank"
+            class="plausible-event-name=Button+Navigation+Click plausible-event-source=learn plausible-event-section=filter plausible-event-target=omnicd"
+            >OmniCD</a
+          >.
+        </div>
+      </div>
+    </div>
+    <div id="backdrop" class="backdrop hidden"></div>
+    <!--endregion-->
+
+    <!--region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ LEARN PAGE ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼-->
+    <div class="noFilterResultsText hidden" id="noFilterResultsText">
+      Please select at least one filter from the top right or change your filters, as your current selection gives no
+      results.
+    </div>
+    <div class="hidden" id="learnSection">
+      <div class="section" id="learnText">
+        <div class="sectionTopToBottom">
+          <h1>
+            <div class="center-text">
+              <div>Test Your Knowledge</div>
+              <span>of all</span>
+              <div>WoW PvP Relevant Spells</div>
+            </div>
+          </h1>
+          <p class="listPoints">1. Choose to learn with either icons or screenshots.</p>
+          <p class="listPoints">2. Click somewhere on the screen to reveal spell details.</p>
+          <p class="listPoints">3. Swipe left or right to indicate whether you knew the spell.</p>
+          <p class="listPoints">4. Receive a final percentage score to measure your progress.</p>
+          <p class="listPoints">(Use the filter in the top right corner to specify the classes to learn.)</p>
+        </div>
+      </div>
+
+      <div class="learnModeChoice" id="learnModeChoice">
+        <div class="toggleContainer">
+          <div class="toggle">
+            <div class="toggleOptions">
+              <div
+                class="toggleOption active toggleOption1 plausible-event-name=Toggle+Click plausible-event-section=content plausible-event-option=icon"
+              >
+                <div class="toogleOptionText">Spell Icon</div>
+              </div>
+              <div
+                class="toggleOption toggleOption2 plausible-event-name=Toggle+Click plausible-event-section=content plausible-event-option=screenshot"
+              >
+                <div class="toogleOptionText">Screenshot</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="button plausible-event-name=Game+Start plausible-event-source=learn plausible-event-section=content"
+          id="buttonStartLearn"
+        >
+          Start Learn
+        </button>
+      </div>
+
+      <div class="hidden" id="learnContent">
+        <div class="learnResultText hidden" id="learnResultText"></div>
+        <div class="learnTextContainer" id="learnTextContainer">
+          <div>
+            <div class="learnTextSwipeInfoContainer">
+              <div>
+                <span class="learnTextHeadline" id="learnTextHeadline"></span>
+                <div class="learnTextSwipeInfo">
+                  <span id="learnTextSwipeLeft"></span>
+                  <span id="learnTextSwipeText"></span>
+                  <span id="learnTextSwipeRight"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="learnImageBackdrop" id="learnImageBackdrop">
+          <picture>
+            <source type="image/webp" />
+            <source type="image/jpeg" />
+            <img class="learnImage" id="learnImage" alt="Learn image" draggable="false" />
+          </picture>
+        </div>
+        <div class="learnCardsContainerBackdrop" id="learnCardsContainerBackdrop">
+          <div>
+            <div class="learnCardsContainer hidden" id="learnCardsContainer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--endregion-->
+
+    <!--region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ SCREENSHOT LIGHTBOX ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼-->
+    <div id="screenshotLightbox" class="hidden">
+      <div id="screenshotLightboxOverlay"></div>
+      <img id="screenshotLightboxImage" src="" alt="Large Screenshot" />
+    </div>
+    <!--endregion-->
+
+    <!--region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ FOOTER ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼-->
+    <footer id="footer" class="hidden">
+      <div class="footerContent">
+        <span>
+          <a
+            href="https://reddit.com/r/<link>"
+            target="_blank"
+            class="plausible-event-name=Navigation+Click plausible-event-source=learn plausible-event-section=footer plausible-event-target=reddit"
+            >Reddit</a
+          >
+          Thread</span
+        >
+        |
+        <span
+          ><a
+            href="https://github.com/JilReg/AllWoWPvP"
+            target="_blank"
+            class="plausible-event-name=Navigation+Click plausible-event-source=learn plausible-event-section=footer plausible-event-target=github"
+            >GitHub</a
+          >
+          Repository</span
+        >
+        |
+        <span>
+          <a
+            href="legal.html"
+            rel="nofollow"
+            class="plausible-event-name=Navigation+Click plausible-event-source=learn plausible-event-section=footer plausible-event-target=legal"
+            >Legal</a
+          >
+          Notice
+        </span>
+      </div>
+    </footer>
+    <!--endregion-->
+
+    <script src="main.js"></script>
+  </body>
+
+  <!--  region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ TEMPLATES ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ //-->
+  <div class="card cardTemplate hidden">
+    <div class="cardIconAndCategoryContainer">
+      <img class="cardIcon" src="" alt="" draggable="false" loading="lazy" />
+      <div class="cardCategoryTag hidden">
+        <picture>
+          <source srcset="" type="image/webp" />
+          <source srcset="" type="image/jpeg" />
+          <img src="" alt="" draggable="false" loading="lazy" />
+        </picture>
+        <div class="cardCategoryTagText">Category</div>
+      </div>
+    </div>
+    <div class="cardTooltip">
+      <div class="cardTooltipRow">
+        <h2 class="cardTooltipSpellName"></h2>
+        <span class="cardTooltipRange"></span>
+      </div>
+
+      <div class="cardTooltipRow">
+        <span class="cardTooltipCastTime"></span>
+        <span class="cardTooltipCooldown"></span>
+      </div>
+      <p class="cardTooltipDescription"></p>
+      <p class="cardTooltipDescriptionOriginal hidden"></p>
+    </div>
+    <div class="cardScreenshotContainer">
+      <picture>
+        <source type="image/webp" />
+        <source type="image/jpeg" />
+        <img class="cardScreenshot" alt="Screenshot" draggable="false" loading="lazy" />
+      </picture>
+    </div>
+  </div>
+  <!--endregion-->
+</html>

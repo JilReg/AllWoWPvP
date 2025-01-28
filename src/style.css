@@ -1,0 +1,1053 @@
+/*region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ GENERAL ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+html {
+  background-color: var(--color-bg);
+  font-size: 14px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-bg);
+  margin: 50px 0 0 0;
+}
+
+html,
+body {
+  overscroll-behavior: none; /* Prevents scroll bounce */
+  touch-action: manipulation; /* Disables double-tap zoom */
+}
+
+a {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Makes the link inherit the color of its parent element */
+}
+
+.section a {
+  color: var(--color-main);
+}
+
+.hidden {
+  display: none !important;
+}
+
+:root {
+  --color-main: #ca8a04;
+  --color-bg: #101010;
+  --color-1: #282828;
+  --color-deathknight: #c41e3a;
+  --color-demonhunter: #a330c9;
+  --color-druid: #ff7c0a;
+  --color-evoker: #33937f;
+  --color-hunter: #aad372;
+  --color-mage: #3fc7eb;
+  --color-monk: #00ff98;
+  --color-paladin: #f48cba;
+  --color-priest: #ffffff;
+  --color-rogue: #fff468;
+  --color-shaman: #0070dd;
+  --color-warlock: #8788ee;
+  --color-warrior: #c69b6d;
+
+  --toggle-height: 48px;
+  --toggle-border-thickness: 2px;
+  --toggle-option-width: 86px;
+}
+
+.deathknight {
+  color: var(--color-deathknight);
+}
+.demonhunter {
+  color: var(--color-demonhunter);
+}
+.druid {
+  color: var(--color-druid);
+}
+.evoker {
+  color: var(--color-evoker);
+}
+.hunter {
+  color: var(--color-hunter);
+}
+.mage {
+  color: var(--color-mage);
+}
+.monk {
+  color: var(--color-monk);
+}
+.paladin {
+  color: var(--color-paladin);
+}
+.priest {
+  color: var(--color-priest);
+}
+.rogue {
+  color: var(--color-rogue);
+}
+.shaman {
+  color: var(--color-shaman);
+}
+.warlock {
+  color: var(--color-warlock);
+}
+.warrior {
+  color: var(--color-warrior);
+}
+
+/*endregion*/
+
+/*region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ HEADER ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #202020;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1000;
+}
+
+.headerLinks {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 150px;
+}
+
+.headerLink {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #bbbbbb;
+}
+
+.headerLink:hover {
+  text-decoration: underline;
+  color: var(--color-main);
+}
+
+.headerLink.active {
+  color: var(--color-main);
+}
+
+.headerLogoHref {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+.logo,
+.logoShort {
+  position: absolute;
+
+  height: 40px;
+}
+
+.filter {
+  position: absolute;
+  right: 5px;
+  height: 40px;
+  background-color: #282828;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0 10px;
+  border-radius: 3px;
+}
+
+.filterCloseButton {
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1200;
+}
+
+.filterCloseIcon {
+  position: relative;
+  width: 20px;
+}
+
+.filter:hover {
+  background-color: var(--color-main);
+  cursor: pointer;
+}
+
+.filterIcon {
+  margin-right: 3px;
+  height: 15px;
+}
+
+.filterMenu {
+  position: fixed;
+  top: 46px;
+  right: 5px;
+  gap: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 1100;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+  max-height: calc(100vh - 50px);
+}
+
+.filterHeadline {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-main);
+  margin-bottom: 20px;
+}
+
+.filterGroup > div:nth-of-type(2) > .filterHeadline {
+  margin-top: 50px;
+}
+
+.filterGroup {
+  width: 160px;
+  background-color: #282828;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.filterInfoText {
+  margin-top: 50px;
+  color: #bbbbbb;
+  position: absolute;
+  bottom: 20px;
+}
+
+@media (max-width: 650px), (max-height: 700px) {
+  .filterMenu {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .filterInfoText {
+    position: relative;
+    bottom: 0;
+  }
+}
+
+.filterInfoText a {
+  color: var(--color-main);
+}
+
+.filterMenuContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  gap: 8px;
+}
+
+.filterMenu .filterMenuContainer:last-of-type {
+  margin-bottom: 0;
+}
+
+.filterMenuContainer input {
+  cursor: pointer;
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.filterCheckmark {
+  height: 16px;
+  width: 16px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+.filterCheckmark,
+.filterMenuContainer:hover input ~ .filterCheckmark,
+.filterMenuContainer:hover input ~ .filterCheckmark,
+input:checked ~ .filterCheckmark {
+  background-color: #282828;
+  border-radius: 2px;
+  border: 2px solid #000000;
+  outline: 2px solid #444444;
+}
+
+.filterMenuContainer:hover input ~ .filterCheckmark,
+input ~ .filterCheckmark:hover,
+.filterMenuContainer input:checked ~ .filterCheckmark:hover {
+  outline: 0.125em solid #969696;
+}
+
+.filterCheckmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.filterMenuContainer input:checked ~ .filterCheckmark:after {
+  display: block;
+}
+
+.filterMenuContainer .filterCheckmark:after {
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--color-main);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.filterMenuContainerIndented {
+  margin-left: 30px;
+}
+
+.filterMenuContainer img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.filterMenuContainer span {
+  font-size: 1rem;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+  display: none;
+}
+
+.backdrop.show {
+  display: block;
+}
+
+.button,
+.button2 {
+  height: 40px;
+  background-color: var(--color-main);
+  border-radius: 3px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  border: 0;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-main);
+  color: var(--color-main);
+}
+
+.filterButtonText {
+  font-size: 1rem;
+}
+
+@media (max-width: 650px) {
+  .logo {
+    display: none;
+  }
+  .headerLinks {
+    margin: 0 50px;
+  }
+  .filterText {
+    display: none;
+  }
+  .filterIcon {
+    margin-right: 0;
+  }
+}
+@media (min-width: 651px) {
+  .logoShort {
+    display: none;
+  }
+}
+
+/*endregion*/
+
+/*region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ FOOTER ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+footer {
+  border-top: 1px solid #202020;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #bbbbbb;
+  width: 100%;
+}
+
+.footerContent a {
+  color: var(--color-main);
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    gap: 5px;
+  }
+}
+/*endregion*/
+
+/*region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ HOME PAGE ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+h1 {
+  font-size: 2rem;
+  color: var(--color-main);
+  margin-bottom: 20px;
+}
+
+h1 span {
+  font-size: 1rem;
+}
+
+.center-text {
+  display: flex;
+  flex-direction: column;
+}
+
+p,
+li {
+  font-size: 1rem;
+  color: #bbbbbb;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+ul {
+  padding: 0 20px;
+}
+
+.section {
+  max-width: 800px;
+}
+
+.heroText {
+  max-width: 700px;
+  margin: 20px 0;
+}
+
+.heroImage {
+  max-width: 450px;
+}
+
+.sectionTopToBottom,
+.sectionLeftToRight,
+.sectionRightToLeft {
+  color: white;
+  display: flex;
+  align-items: center; /* Vertical alignment */
+  gap: 40px; /* Space between text and image */
+  margin: 10px 0;
+  padding: 20px;
+}
+
+.sectionRightToLeft,
+.sectionLeftToRight {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sectionTopToBottom {
+  gap: 0;
+
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.section button {
+  width: 90px;
+}
+
+.sectionRightToLeft div,
+.sectionLeftToRight div {
+  text-align: left; /* Ensures text aligns left */
+}
+
+.sectionRightToLeft div {
+  order: 2; /* Text appears last (right side) */
+}
+
+.sectionTopToBottom h1,
+.sectionTopToBottom p {
+  text-align: center;
+}
+
+.sectionRightToLeft img,
+.sectionLeftToRight img {
+  height: 250px;
+  max-width: 250px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.sectionLeftToRight img {
+  order: 2; /* Image appears last (right side) */
+}
+
+.sectionRightToLeft img {
+  order: 1; /* Image appears first (left side) */
+}
+
+.sectionTopToBottom img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile styles: Stack everything vertically */
+@media (max-width: 768px) {
+  .sectionTopToBottom,
+  .sectionLeftToRight,
+  .sectionRightToLeft {
+    flex-direction: column; /* Stack vertically */
+    text-align: center; /* Center-align everything */
+    gap: 0; /* Space between text and image */
+  }
+
+  .sectionLeftToRight div,
+  .sectionRightToLeft div {
+    order: 1; /* Text always comes first */
+  }
+
+  .sectionLeftToRight img,
+  .sectionRightToLeft img {
+    order: 2; /* Image always comes second */
+    max-width: 100%;
+    margin-top: 10px;
+  }
+}
+/*endregion*/
+
+/*region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ SPELLS PAGE ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+
+.noFilterResultsText {
+  height: calc(100vh - 50px - 57px);
+  margin: 0 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+}
+
+#spellsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#spellsCardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/*endregion*/
+
+/*region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ LEARN PAGE ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+
+.learnModeChoice {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.learnResultText {
+  position: fixed;
+  top: 50%;
+  left: calc(50% - 50px);
+  transform: translateY(-50%);
+  width: 100px;
+  display: flex;
+  justify-content: center;
+
+  color: white;
+  font-size: 4rem;
+  white-space: nowrap;
+}
+
+.learnTextContainer {
+  position: fixed;
+  left: 0;
+  top: 50px;
+  height: 100px;
+  width: 100%;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  color: white;
+  font-size: 2rem;
+  white-space: nowrap;
+}
+
+.learnTextSwipeInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.learnTextHeadline {
+  font-size: 2rem;
+}
+
+.learnTextSwipeInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.learnCardsContainerBackdrop,
+.learnImageBackdrop {
+  position: fixed;
+  left: 0;
+  top: 150px;
+  width: 100%;
+  height: calc(100% - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: auto;
+  cursor: pointer;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.learnCardsContainerBackdrop::-webkit-scrollbar {
+  display: none;
+}
+
+.learnImage {
+  border: 1px solid black;
+  margin-bottom: 150px;
+}
+
+.learnImageBackdrop.iconMode .learnImage {
+  width: 66px;
+  height: 66px;
+}
+
+.learnImageBackdrop.screenshotMode .learnImage {
+  width: 300px;
+  height: 300px;
+}
+
+.learnCardsContainer {
+  padding-bottom: 150px;
+}
+
+@media (orientation: landscape) and (max-height: 430px), (orientation: portrait) and (max-width: 650px) {
+  .learnCardsContainerBackdrop {
+    align-items: stretch;
+  }
+
+  .learnCardsContainer {
+    padding-bottom: 20px;
+  }
+
+  .learnImage {
+    margin-bottom: 75px;
+  }
+}
+
+.toggleContainer {
+  height: calc(var(--toggle-height) - 2 * var(--toggle-border-thickness) - 2px);
+  width: calc(2 * var(--toggle-option-width) + 6 * var(--toggle-border-thickness) - 2px);
+  border: calc(var(--toggle-border-thickness) + 1px) solid #303030;
+  border-radius: 3px;
+  position: relative;
+}
+
+.toggle {
+  height: calc(var(--toggle-height) - 4 * var(--toggle-border-thickness) - 2px);
+  width: calc(2 * var(--toggle-option-width) + 4 * var(--toggle-border-thickness) - 2px);
+  top: -1px;
+  left: -1px;
+  border: calc(var(--toggle-border-thickness) + 1px) solid #000000;
+  border-radius: 3px;
+  position: absolute;
+  display: flex;
+}
+
+.toggleOptions {
+  top: -1px;
+  left: -1px;
+  position: absolute;
+  display: flex;
+}
+
+.toggleOption {
+  height: calc(var(--toggle-height) - 6 * var(--toggle-border-thickness));
+  border: var(--toggle-border-thickness) solid #202020;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #202020;
+  color: #e3e3e3;
+  cursor: pointer;
+}
+
+.toggleOption1,
+.toggleOption1.active {
+  border-radius: var(--toggle-border-thickness) 0 0 var(--toggle-border-thickness);
+}
+
+.toggleOption2,
+.toggleOption2.active {
+  border-radius: 0 var(--toggle-border-thickness) var(--toggle-border-thickness) 0;
+}
+
+.toggleOption.active {
+  border: var(--toggle-border-thickness) solid var(--color-main);
+  background-color: #8c6004;
+  color: #ffffff;
+}
+
+.toogleOptionText {
+  width: var(--toggle-option-width);
+  font-weight: bold;
+  text-align: center;
+}
+
+.listPoints {
+  margin: 10px 0;
+}
+
+/*endregion*/
+
+/*region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ SCREENSHOT LIGHTBOX ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+#screenshotLightbox.hidden {
+  display: none;
+}
+
+#screenshotLightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#screenshotLightboxImage {
+  height: 70%;
+  max-height: 100%;
+  border: 2px solid white;
+}
+
+#screenshotLightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 1;
+}
+/*endregion*/
+
+/*region ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ TEMPLATES ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+
+.card {
+  display: flex;
+  color: rgb(248, 211, 71);
+  padding: 10px;
+  background-color: #181818;
+  border-radius: 6px;
+}
+
+.cardIconAndCategoryContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  margin-right: 10px;
+}
+
+.cardCategoryTag {
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+  bottom: 0;
+
+  height: 13px;
+  width: 100%;
+
+  border: 1px solid white;
+}
+
+.cardCategoryTag img {
+  height: 13px;
+  width: 13px;
+
+  border-right: 1px solid white;
+}
+
+.cardCategoryTagText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  color: white;
+  text-align: center;
+  font-size: 0.65rem;
+
+  border-left: none;
+  box-sizing: border-box;
+
+  margin-top: 1px;
+}
+
+.cardIcon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border: 1px solid #ffffff;
+}
+
+.cardTooltip {
+  padding: 10px;
+  border: 1px solid #ffffff;
+  background-color: #070b1e;
+  width: 300px;
+  height: 100%;
+  min-height: 115px;
+  overflow-wrap: break-word;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+.cardScreenshotContainer {
+  position: relative;
+  width: 117px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+}
+
+.cardScreenshotContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
+  background-size: cover;
+  filter: blur(6px);
+  z-index: 1;
+  background-image: var(--setByJs);
+}
+
+.cardScreenshot {
+  width: 115px;
+  height: 115px;
+  object-fit: cover;
+
+  position: relative;
+  z-index: 2;
+  max-width: 300px;
+}
+
+@media (min-width: 551px) {
+  .cardScreenshot {
+    cursor: pointer;
+  }
+}
+
+.no-screenshot {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6a6a6a;
+  font-size: 0.8rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.cardTooltipSpellName {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.cardTooltipRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.cardTooltipCastTime,
+.cardTooltipRange,
+.cardTooltipCooldown {
+  color: #ffffff;
+}
+
+.cardTooltipDescription,
+.cardTooltipDescriptionOriginal {
+  font-size: 1rem;
+  color: #ffd100;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@media (max-width: 550px) {
+  .card {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cardTooltip {
+    margin-right: 0;
+  }
+  .cardScreenshot {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  .cardScreenshotContainer {
+    width: 100%;
+    height: 300px;
+  }
+
+  .cardCategoryTag {
+    width: 64px;
+    top: 0;
+    right: 0;
+  }
+
+  .cardIconAndCategoryContainer {
+    margin-right: 0;
+  }
+}
+
+.classDivider {
+  position: sticky;
+  top: 50px;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 10;
+  background-color: var(--color-bg);
+}
+
+.classDividerContainer {
+  height: 50px;
+  font-weight: bold;
+  font-size: x-large;
+  border-radius: 6px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c69b6d;
+  letter-spacing: 2px;
+  background-color: #181818;
+  position: relative;
+}
+
+.classDividerName {
+  font-size: 1.75rem;
+}
+
+@media (max-width: 340px) {
+  .classDividerName {
+    font-size: 1.5rem;
+  }
+}
+
+.classDividerCircleOuter {
+  position: absolute;
+  left: 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #c69b6d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.classDividerCircleInner {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: #000000;
+  display: flex;
+}
+
+.classDividerCircleInner img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+/*endregion*/
