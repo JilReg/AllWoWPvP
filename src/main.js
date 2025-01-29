@@ -552,7 +552,27 @@ function proceedToNextLearnEntry() {
 
     document.getElementById("learnResultText").innerText = percentageText;
     plausible("Game End", {
-      props: { source: "learn", section: "content", result: rangeText, filters: selectedFilters.join(", ") },
+      props: {
+        source: "learn",
+        section: "content",
+        result: rangeText,
+        classes: selectedFilters
+          .filter((item) => item.startsWith("CLASS_")) // Keep only CLASS_ items
+          .map((item) => item.replace("CLASS_", "")) // Remove CLASS_ prefix
+          .join(", "),
+        categories: selectedFilters
+          .filter((item) => item.startsWith("CATEGORY_")) // Keep only CLASS_ items
+          .map((item) => item.replace("CATEGORY_", "")) // Remove CLASS_ prefix
+          .join(", "),
+        addons: selectedFilters
+          .filter((item) => item.startsWith("ADDON_")) // Keep only CLASS_ items
+          .map((item) => item.replace("ADDON_", "")) // Remove CLASS_ prefix
+          .join(", "),
+        settings: selectedFilters
+          .filter((item) => item.startsWith("SETTINGS_")) // Keep only CLASS_ items
+          .map((item) => item.replace("SETTINGS_", "")) // Remove CLASS_ prefix
+          .join(", "),
+      },
     });
 
     document.getElementById("learnTextHeadline").innerText = "Result";
