@@ -546,9 +546,10 @@ function proceedToNextLearnEntry() {
     document.getElementById("learnResultText").classList.remove("hidden");
 
     const percentage = Math.floor((learnRightSwipes / (learnLeftSwipes + learnRightSwipes)) * 100);
-    const rangeStart = Math.floor(percentage / 5) * 5;
     const percentageText = `${percentage}%`;
-    const rangeText = `${rangeStart}-${rangeStart + 5}%`;
+    const rangeStart = Math.min(Math.floor(percentage / 5) * 5, 95);
+    const rangeEnd = Math.min(rangeStart + 5, 100);
+    const rangeText = `${rangeStart}-${rangeEnd}%`;
 
     document.getElementById("learnResultText").innerText = percentageText;
     plausible("Game End", {
