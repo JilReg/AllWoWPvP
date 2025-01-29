@@ -130,11 +130,11 @@ function showSpellsSection() {
   document.body.style.userSelect = "auto";
 
   loadCardsForFilters(selectedFilters);
-  document.getElementsByTagName("footer")[0].classList.remove("hidden");
 }
 
 function loadCardsForFilters(filters) {
   const matchingSpells = getMatchingSpellsForFilters(filters);
+  updateNoResultsText(matchingSpells.length);
 
   // Sort matching spells by spellOrderIndex for correct order
   matchingSpells.sort((a, b) => Number(a.spellOrderIndex) - Number(b.spellOrderIndex));
