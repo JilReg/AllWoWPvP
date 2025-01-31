@@ -32,8 +32,8 @@ For PvP players of all skill levels:
 
 Want to help improve All WoW PvP? Contributions are welcome! Here's how you can get involved:
 
-- ✨ **Suggest Features**: Have an idea to make this website even more useful? Share your suggestions on [GitHub](https://github.com/JilReg/AllWoWPvP/issues) or [Reddit](https://reddit.com/r/<link>).
-- 🐛️ **Report Issues**: Found a bug or something that could be better? Let me know by opening an issue on [GitHub](https://github.com/JilReg/AllWoWPvP/issues) or posting on [Reddit](https://reddit.com/r/<link>).
+- ✨ **Suggest Features**: Have an idea to make this website even more useful? Share your suggestions on [GitHub](https://github.com/JilReg/AllWoWPvP/issues) or [Reddit](https://www.reddit.com/r/worldofpvp/comments/1ief1tr/new_website_learn_all_pvp_relevant_spells_of/).
+- 🐛️ **Report Issues**: Found a bug or something that could be better? Let me know by opening an issue on [GitHub](https://github.com/JilReg/AllWoWPvP/issues) or posting on [Reddit](https://www.reddit.com/r/worldofpvp/comments/1ief1tr/new_website_learn_all_pvp_relevant_spells_of/).
 - 🛠️️ **Submit Pull Requests**: If you're a developer, feel free to contribute directly to the codebase.
 
 Let’s work together to make PvP spell learning accessible and fun for the entire WoW community!
