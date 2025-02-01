@@ -1018,9 +1018,12 @@ ul {
   font-size: 1.75rem;
 }
 
-@media (max-width: 340px) {
-  .classDividerName {
-    font-size: 1.5rem;
+@media (max-width: 550px) {
+  .dhExtraLeftMargin {
+    margin-left: 37px;
+  }
+  .dkExtraLeftMargin {
+    margin-left: 21px;
   }
 }
 

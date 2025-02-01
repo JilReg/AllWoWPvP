@@ -391,7 +391,7 @@ function showLearnImage() {
   document.getElementById("learnCardsContainer").classList.add("hidden");
   document.getElementById("learnCardsContainerBackdrop").classList.add("hidden");
 
-  document.getElementById("learnTextHeadline").innerText = "Remeber it?";
+  document.getElementById("learnTextHeadline").innerText = "Remember it?";
   document.getElementById("learnTextSwipeLeft").innerText = "";
   document.getElementById("learnTextSwipeText").innerText = "click to continue";
   document.getElementById("learnTextSwipeRight").innerText = "";
@@ -932,6 +932,12 @@ function createAndAppendClassDivider(classType, color = "#FFFFFF", destinationEl
   classDividerContainer.querySelector(".classDividerName").textContent = classDividerNameForOutput;
   classDividerContainer.querySelector(".classDividerName").style.color = color;
   classDividerContainer.querySelector(".classDividerCircleOuter").style.backgroundColor = color;
+
+  if (classDividerNameForOutput === "Demon Hunter") {
+    classDividerContainer.querySelector(".classDividerName").classList.add("dhExtraLeftMargin");
+  } else if (classDividerNameForOutput === "Death Knight") {
+    classDividerContainer.querySelector(".classDividerName").classList.add("dkExtraLeftMargin");
+  }
 
   const classDividerIcon = classDividerContainer.querySelector(".classDividerCircleInner > picture");
   const classDividerIconWebpSource = classDividerIcon.querySelector("source[type='image/webp']");
